@@ -11,7 +11,7 @@ public class NoCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
 
-    private final static String NO_COMMAND = "I support commands starting with a slash (/). " +
+    final static String NO_COMMAND = "I support commands starting with a slash (/). " +
             "To see the list of commands, enter /help.";
 
     public NoCommand(SendBotMessageService sendBotMessageService) {

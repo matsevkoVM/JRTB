@@ -12,7 +12,7 @@ import static com.github.javarushcommunity.jrtb.command.CommandName.*;
 public class HelpCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
 
-    private final static String HELP_MESSAGE = String.format("✨<b>Available commands</b>✨\n\n" +
+    final static String HELP_MESSAGE = String.format("✨<b>Available commands</b>✨\n\n" +
             "<b>Start\\Stop work with bot</b>\n" +
             "%s - start to work with me\n" +
             "%s - suspend working with me.\n\n" +
