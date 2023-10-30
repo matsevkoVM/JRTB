@@ -3,6 +3,7 @@ package com.github.javarushcommunity.jrtb.bot;
 import com.github.javarushcommunity.jrtb.command.CommandContainer;
 import com.github.javarushcommunity.jrtb.command.CommandName;
 import com.github.javarushcommunity.jrtb.services.impl.SendBotMessageServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -13,11 +14,13 @@ import org.telegram.telegrambots.meta.api.objects.Update;
  */
 
 @Component
+@Slf4j
 public class JavaRushTelegramBot extends TelegramLongPollingBot {
     public final static String COMMAND_PREFIX = "/";
 
     @Value("${bot.username}")
     private String botUsername;
+    
 
     @Value("${bot.token}")
     private String botToken;
