@@ -4,7 +4,6 @@ services:
   jrtb:
     build:
       context: .
-    environment:
-      - BOT_NAME:${BOT_NAME}
-      - BOT_TOKEN:${BOT_TOKEN}
+    env_file:
+      - ./.env/jrtb.env
     restart: always
