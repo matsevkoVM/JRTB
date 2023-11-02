@@ -2,7 +2,6 @@ package com.github.javarushcommunity.jrtb.command;
 
 import com.github.javarushcommunity.jrtb.services.SendBotMessageService;
 import com.github.javarushcommunity.jrtb.services.TelegramUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 /**
@@ -14,7 +13,7 @@ public class StatisticsCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    private final static String STATISTICS_MESSAGE = "%d persons use the bot";
+    protected final static String STATISTICS_MESSAGE = "%d persons use the bot";
 
     public StatisticsCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
