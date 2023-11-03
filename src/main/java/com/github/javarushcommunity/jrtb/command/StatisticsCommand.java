@@ -5,32 +5,26 @@ import com.github.javarushcommunity.jrtb.services.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 /**
- * Stop {@link Command}.
+ * Statistics {@link Command}.
  */
 
-public class StopCommand implements Command {
+public class StatisticsCommand implements Command{
 
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    final static String STOP_MESSAGE = "Deactivated all your subscriptions. \uD83D\uDE1F";
+    protected final static String STATISTICS_MESSAGE = "%d persons use the bot";
 
-    public StopCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
+    public StatisticsCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
         this.telegramUserService = telegramUserService;
     }
 
     @Override
     public void execute(Update update) {
+        int activeUserCount = telegramUserService.getAllActiveUsers().size();
         String chatId = update.getMessage().getChatId().toString();
 
-        telegramUserService.findByChatId(chatId).ifPresent(
-                telegramUser -> {
-                    telegramUser.setActive(false);
-                    telegramUserService.save(telegramUser);
-                }
-        );
-
-        sendBotMessageService.sendMessage(chatId, STOP_MESSAGE);
+        sendBotMessageService.sendMessage(chatId, String.format(STATISTICS_MESSAGE, activeUserCount));
     }
 }

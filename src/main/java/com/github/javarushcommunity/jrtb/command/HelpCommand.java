@@ -9,15 +9,18 @@ import static com.github.javarushcommunity.jrtb.command.CommandName.*;
  * Help {@link Command}.
  */
 
-public class HelpCommand implements Command{
+public class HelpCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
 
     final static String HELP_MESSAGE = String.format("✨<b>Available commands</b>✨\n\n" +
-            "<b>Start\\Stop work with bot</b>\n" +
-            "%s - start to work with me\n" +
-            "%s - suspend working with me.\n\n" +
-            "%s - get help\n",
-            START.getCommandName(), STOP.getCommandName(), HELP.getCommandName());
+                    "<b>Start\\Stop work with bot</b>\n" +
+                    "%s - start to work with me.\n" +
+                    "%s - suspend working with me.\n\n" +
+                    "<b>Statistics</b>\n" +
+                    "%s - get statistics. \n\n" +
+                    "<b>Help</b>\n" +
+                    "%s - get help\n",
+            START.getCommandName(), STOP.getCommandName(),STATISTICS.getCommandName(), HELP.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;

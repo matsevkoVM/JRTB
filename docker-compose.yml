@@ -2,8 +2,22 @@ version: '3.1'
 
 services:
   jrtb:
+    depends_on:
+      - jrtb-db
     build:
       context: .
     env_file:
       - ./.env/jrtb.env
     restart: always
+  jrtb-db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_USER: ${BOT_DB_USERNAME}
+      MYSQL_PASSWORD: ${BOT_DB_PASSWORD}
+      MYSQL_DATABASE: 'jrtb_db'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
