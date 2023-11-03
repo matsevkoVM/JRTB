@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.github.javarushcommunity.jrtb", "org.telegram.telegrambots"})
-public class JavarushTelegramBotApplication {
+public class JavarushTelegramBotApplication{
 
 	public static void main(String[] args) {
 		SpringApplication.run(JavarushTelegramBotApplication.class, args);

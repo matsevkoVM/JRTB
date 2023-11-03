@@ -1,5 +1,6 @@
 package com.github.javarushcommunity.jrtb.repository.entity;
 
+import lombok.Builder;
 import org.hibernate.proxy.HibernateProxy;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import java.util.Objects;
  * Telegram User entity.
  */
 
+@Builder
 @Entity
 @Table(name = "tg_user")
 public class TelegramUser {

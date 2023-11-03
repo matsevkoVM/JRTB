@@ -17,6 +17,6 @@ class StatisticsCommandTest extends AbstractCommandTest{
 
     @Override
     Command getCommand() {
-        return null;
+        return new StatisticsCommand(sendBotMessageService, telegramUserService);
     }
 }

@@ -38,7 +38,7 @@ public class TelegramUserRepositoryIT{
     @Test
     public void shouldProperlySaveTelegramUser(){
         String chatId = "987654321";
-        TelegramUser user = new TelegramUser(chatId, true);
+        TelegramUser user = new TelegramUser(chatId, false);
         telegramUserRepository.save(user);
 
         Optional<TelegramUser> savedUser = telegramUserRepository.findById(chatId);
